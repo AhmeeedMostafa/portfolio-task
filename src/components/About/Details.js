@@ -27,31 +27,31 @@ const Details = ({ classes }) => {
         Ahmed M. Khallaf
       </Typography>
       <Divider className={classes.divider} />
-      <Typography className={classes.txt}>
+      <div className={classes.txt}>
         <strong>Full-stack developer</strong>
         <Typography>
           A computer & control Engineering student, turning 22 years old & lives in Cairo.
         </Typography>
-      </Typography>
+      </div>
       <Divider className={classes.divider}  />
-      <Typography className={classes.txt}>
+      <div className={classes.txt}>
         <strong>Technologies</strong>
-        <Typography>
+        <div>
           <em><u>Front-end</u></em>
           <ul>
             <li>HTML, CSS, Javascript & jQuery</li>
             <li>ReactJS & React Native</li>
             <li>Bootstrap, Material-UI & GraphQL</li>
           </ul>
-        </Typography>
-        <Typography>
+        </div>
+        <div>
           <em><u>Back-end</u></em>
           <ul>
             <li>NodeJS, PHP & Python</li>
             <li>MySQL & Firebase</li>
           </ul>
-        </Typography>
-        <Typography>
+        </div>
+        <div>
           <em><u>Others</u></em>
           <ul>
             <li>JAVA</li>
@@ -60,8 +60,8 @@ const Details = ({ classes }) => {
             <li>Agile Develop. (Jira)</li>
 
           </ul>
-        </Typography>
-      </Typography>
+        </div>
+      </div>
     </Box>
   )
 }

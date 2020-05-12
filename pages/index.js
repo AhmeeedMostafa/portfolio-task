@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core';
 
 import Header from '../src/components/Header';
 import AboutSection from '../src/components/About';
+import ProjectsGrid from '../src/components/ProjectsGrid';
 
 const styles = ((theme) => ({
   root: {
@@ -16,6 +17,7 @@ const Index = ({ classes }) => (
   <div className={classes.root}>
     <Header />
     <AboutSection />
+    <ProjectsGrid />
   </div>
 );
 

@@ -4,7 +4,7 @@ import { Box, withStyles } from '@material-ui/core';
 
 const styles = ((theme) => ({ 
   img: {
-    width: '50vw',
+    maxWidth: '50vw',
     position: 'relative',
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px - 10px)`,
     backgroundImage: "url('/imgs/Ahmed.jpg')",
