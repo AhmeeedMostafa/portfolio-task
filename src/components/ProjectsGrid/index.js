@@ -6,7 +6,8 @@ import ProjectItem from './ProjectItem';
 
 const styles = ((theme) => ({
   root: {
-    paddingTop: theme.spacing(3),
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(3),
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
