@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 
 import Header from '../src/components/Header';
+import AboutSection from '../src/components/About';
 
 const styles = ((theme) => ({
   root: {
@@ -14,6 +15,7 @@ const styles = ((theme) => ({
 const Index = ({ classes }) => (
   <div className={classes.root}>
     <Header />
+    <AboutSection />
   </div>
 );
 
