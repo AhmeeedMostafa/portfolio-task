@@ -5,19 +5,9 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import MuiLink from '@material-ui/core/Link';
 
-
-
-// A styled version of the Next.js Link component:
-// https://nextjs.org/docs/#with-link
-function Link(props) {
-  const {
-    href,
-    activeClassName = 'active',
-    className: classNameProps,
-    innerRef,
-    naked,
-    ...other
-  } = props;
+const Link = ({
+  href, innerRef, naked, activeClassName = 'active', className: classNameProps, ...other 
+}) => {
 
   const router = useRouter();
   const pathname = typeof href === 'string' ? href : href.pathname;
