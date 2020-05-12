@@ -1,14 +1,24 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import ProTip from '../src/ProTip';
-import Link from '../src/Link';
+import PropTypes from 'prop-types';
 
-export default function Index() {
-  return (
-    <Container maxWidth="sm">
-      
-    </Container>
-  );
+import { withStyles } from '@material-ui/core';
+
+import Header from '../src/components/Header';
+
+const styles = ((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
+
+const Index = ({ classes }) => (
+  <div className={classes.root}>
+    <Header />
+  </div>
+);
+
+Index.propTypes = {
+  classes: PropTypes.object.isRequired,
 }
+
+export default withStyles(styles)(Index);
