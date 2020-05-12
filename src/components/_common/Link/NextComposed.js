@@ -14,3 +14,5 @@ NextComposed.propTypes = {
     href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     prefetch: PropTypes.bool,
 };
+
+export default NextComposed;

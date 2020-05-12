@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import MuiLink from '@material-ui/core/Link';
+import NextComposed from './NextComposed';
 
 const Link = ({
   href, innerRef, naked, activeClassName = 'active', className: classNameProps, ...other 
