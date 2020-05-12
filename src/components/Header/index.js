@@ -18,7 +18,7 @@ const styles = (theme) => ({
 
 
 const Header = ({ classes }) => (
-  <AppBar>
+  <AppBar position="relative">
     <Toolbar>
         <Typography variant="h6" className={classes.title}>
           Ahmed Khallaf
