@@ -6,12 +6,12 @@ import ProjectItem from './ProjectItem';
 
 const styles = ((theme) => ({
   root: {
+    paddingTop: theme.spacing(3),
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
-    paddingTop: theme.spacing(3),
     paddingLeft: '7%',
   },
   gridList: {
@@ -31,7 +31,7 @@ const projects = [
     { id: 2, name: 'faefaer' },
 ]
 
-const index = ({ classes }) => {
+const ProjectsGrid = ({ classes }) => {
     return (
       <div className={classes.root} id="projects">
         <GridList cellHeight={180} className={classes.gridList}>
@@ -44,8 +44,8 @@ const index = ({ classes }) => {
     )
 }
 
-index.propTypes = {
+ProjectsGrid.propTypes = {
   classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(index);
+export default withStyles(styles)(ProjectsGrid);
