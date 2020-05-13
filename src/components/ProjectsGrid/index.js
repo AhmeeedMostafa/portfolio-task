@@ -6,8 +6,8 @@ import ProjectItem from './ProjectItem';
 
 const styles = ((theme) => ({
   root: {
-    paddingTop: theme.spacing(5),
-    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(7),
+    paddingBottom: theme.spacing(8),
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
@@ -30,7 +30,7 @@ const ProjectsGrid = ({ classes, projects }) => {
       <div className={classes.root} id="projects">
         <GridList cellHeight={180} className={classes.gridList}>
           <GridListTile key="Subheader" cols={3} className={classes.listTileHeader}>
-            <ListSubheader component="div">Projects</ListSubheader>
+            <ListSubheader component="b" >Projects</ListSubheader>
           </GridListTile>
             {projects.map(project => <ProjectItem key={project.id} {...project} />)}
         </GridList>
