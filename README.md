@@ -1,8 +1,24 @@
-# Instabug internship task
+# Instabug internship task (Portfolio website)
 
-## How to build
+## Run in development mode
+npm run dev
+or
+yarn dev
 
+## Run in production mode
+npm run produce
+or
+yarn produce
 
-## The idea behind the example
+## Run in production mode (other commands)
+npm run build
+or
+yarn build
+then
+npm run start
+or
+yarn start
 
-[Next.js](https://github.com/zeit/next.js) is a framework for server-rendered React apps.
+## Technologies used
+
+[Next.js][ReactJS][MaterialUI]
