@@ -2,6 +2,12 @@ import { LinkedIn, Facebook, Twitter } from '@material-ui/icons';
 
 export const reqUrl = "http://localhost:3000";
 
+export const themeModesConstants = {
+  storageKey: 'theme-mode',
+  dark: 'dark',
+  light: 'light',
+};
+
 export const routes = [
   { name: 'Home', path: '/' },
   { name: 'Projects', path: '/#projects' },

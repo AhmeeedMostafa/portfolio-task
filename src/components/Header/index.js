@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { AppBar, Toolbar, Typography, Button, withStyles } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Switch, withStyles, NoSsr } from '@material-ui/core';
 
 import Link from '../_common/Link';
 import { routes } from '../../utils/constants';
+import { ThemeUtilsContext } from '../../utils/theme';
+import { themeModesConstants } from '../../utils/constants';
 
 const styles = (theme) => ({
   title: {
@@ -18,6 +20,8 @@ const styles = (theme) => ({
 
 
 const Header = ({ classes }) => {
+  const { theme, toggleThemeMode } = useContext(ThemeUtilsContext);
+
   const handleLinkClicking = (event) => {
     const targetUrl = event.target.href;
     const startOfSectionId = targetUrl.indexOf('#') + 1;
@@ -41,6 +45,13 @@ const Header = ({ classes }) => {
               {name}
             </Link>
           ))}
+          <NoSsr>
+            <Switch
+              checked={theme.palette.type === themeModesConstants.dark}
+              onChange={toggleThemeMode}
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </NoSsr>
       </Toolbar>
     </AppBar>
   );

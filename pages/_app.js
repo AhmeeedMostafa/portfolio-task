@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../src/utils/theme';
+import { ThemeUtilsWrapper } from '../src/utils/theme';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -25,11 +24,11 @@ export default function MyApp(props) {
             content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"
           />
       </Head>
-      <ThemeProvider theme={theme}>
+      <ThemeUtilsWrapper>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
-      </ThemeProvider>
+      </ThemeUtilsWrapper>
     </React.Fragment>
   );
 }
