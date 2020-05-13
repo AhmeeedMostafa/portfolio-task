@@ -1,59 +1,88 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { AppBar, Toolbar, Typography, Switch, withStyles, NoSsr } from '@material-ui/core';
+import {
+  IconButton, AppBar, Toolbar, Typography, Switch, withStyles, NoSsr, useMediaQuery
+} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+
 
 import Link from '../_common/Link';
 import { routes } from '../../utils/constants';
-import { ThemeUtilsContext } from '../../utils/theme';
-import { themeModesConstants } from '../../utils/constants';
+import handleNavigation from '../../utils/handleNavigation';
+import DrawerMenu from './DrawerMenu';
+import ToggleThemeButton from './ToggleThemeButton';
+import Logo from './Logo';
 
 const styles = (theme) => ({
-  title: {
-    flexGrow: 0.7,
+  root: {
+    display: 'flex',
+  },
+  links: {
+    marginLeft: 'auto',
   },
   link: {
-    color: 'black',
-    paddingRight: theme.spacing(4),
+    marginRight: theme.spacing(8),
+    fontSize: 18,
+    '&:hover': {
+      textDecoration: 'none',
+      color: theme.palette.secondary.dark,
+      fontWeight: 'bold',
+      transition: '0.5s',
+      borderBottom: `2px solid ${theme.palette.secondary.dark}`,
+    }
+  },
+  menuButton: {
+    marginLeft: 'auto',
   },
 });
 
 
 const Header = ({ classes }) => {
-  const { theme, toggleThemeMode } = useContext(ThemeUtilsContext);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const isNotSmallScreen = useMediaQuery('(min-width:715px)');
 
-  const handleLinkClicking = (event) => {
-    const targetUrl = event.target.href;
-    const startOfSectionId = targetUrl.indexOf('#') + 1;
-    const sectionId = targetUrl.substr(startOfSectionId);
-    const requestedSection = document.getElementById(sectionId);
-    
-    if (requestedSection) {
-      event.preventDefault();
-      requestedSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
+  const openDrawer = () => setIsDrawerOpen(true);
+  const closeDrawer = () => setIsDrawerOpen(false);
 
   return (
-    <AppBar position="relative">
-      <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Ahmed Khallaf
-          </Typography>
-          {routes.map(({ path, name }) => (
-            <Link key={name} href={path} className={classes.link} onClick={handleLinkClicking}>
-              {name}
-            </Link>
-          ))}
-          <NoSsr>
-            <Switch
-              checked={theme.palette.type === themeModesConstants.dark}
-              onChange={toggleThemeMode}
-              inputProps={{ 'aria-label': 'secondary checkbox' }}
-            />
-          </NoSsr>
-      </Toolbar>
-    </AppBar>
+    <div className={classes.root}>
+      <AppBar position="relative">
+        <Toolbar>
+          <Logo />
+          {isNotSmallScreen 
+            ? (
+              <div className={classes.links}>
+                {routes.map(({ path, name }) => (
+                  <Link
+                    key={name}
+                    href={path}
+                    className={classes.link} 
+                    onClick={handleNavigation}
+                    color="textPrimary"
+                  >
+                    {name}
+                  </Link>
+                ))}
+                <ToggleThemeButton />
+              </div>
+            ) :
+            (
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={openDrawer}
+              className={classes.menuButton}
+            >
+              <MenuIcon />
+            </IconButton>
+            )}
+        </Toolbar>
+      </AppBar>
+      {!isNotSmallScreen 
+        && <DrawerMenu isOpen={isDrawerOpen} openDrawer={openDrawer} closeDrawer={closeDrawer} />}
+    </div>
   );
 }
 
