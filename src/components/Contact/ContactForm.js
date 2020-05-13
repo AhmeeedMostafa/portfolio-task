@@ -7,15 +7,12 @@ const styles = ((theme) => ({
   root: {
     paddingTop: theme.spacing(5),
     paddingBottom: theme.spacing(3),
-    width: '40%',
+    maxWidth: '80%',
   },
   form: {
     '& div': {
       margin: theme.spacing(0.35),
     }
-  },
-  field: {
-    width: '49%',
   },
   btn: {
     marginTop: theme.spacing(1),
@@ -72,8 +69,8 @@ const ContactForm = ({ classes }) => {
       {errors.general 
         && <Typography align="center" color="error">All the fields are required, please fill them.</Typography>}
       <form className={classes.form}>
-        <div>
-          <TextField
+          <div>
+            <TextField
             label="Name"
             variant="outlined"
             name="name"
@@ -82,7 +79,10 @@ const ContactForm = ({ classes }) => {
             error={errors.name}
             helperText={errors.name && 'Name is required!'}
             required
+            fullWidth
           />
+        </div>
+        <div>
           <TextField
             label="Email"
             variant="outlined"
@@ -92,6 +92,7 @@ const ContactForm = ({ classes }) => {
             error={errors.email}
             helperText={errors.email && 'Email is required!'}
             required
+            fullWidth
           />
         </div>
         <div>
