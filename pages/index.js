@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core';
 import Header from '../src/components/Header';
 import AboutSection from '../src/components/About';
 import ProjectsGrid from '../src/components/ProjectsGrid';
+import ContactSection from '../src/components/Contact';
 
 const styles = ((theme) => ({
   root: {
@@ -18,6 +19,7 @@ const Index = ({ classes }) => (
     <Header />
     <AboutSection />
     <ProjectsGrid />
+    <ContactSection />
   </div>
 );
 
