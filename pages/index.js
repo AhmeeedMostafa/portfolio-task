@@ -7,6 +7,7 @@ import Header from '../src/components/Header';
 import AboutSection from '../src/components/About';
 import ProjectsGrid from '../src/components/ProjectsGrid';
 import ContactSection from '../src/components/Contact';
+import getProjects from '../src/utils/getProjects';
 
 const styles = ((theme) => ({
   root: {
@@ -14,17 +15,28 @@ const styles = ((theme) => ({
   },
 }));
 
-const Index = ({ classes }) => (
+const Index = ({ classes,projects }) => (
   <div className={classes.root}>
     <Header />
     <AboutSection />
-    <ProjectsGrid />
+    <ProjectsGrid projects={projects} />
     <ContactSection />
   </div>
 );
 
+export async function getStaticProps() {
+  const projects = await getProjects();
+
+  return {
+    props: {
+      projects
+    },
+  }
+}
+
 Index.propTypes = {
   classes: PropTypes.object.isRequired,
+  projects: PropTypes.array.isRequired,
 }
 
 export default withStyles(styles)(Index);

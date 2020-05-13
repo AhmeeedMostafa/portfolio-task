@@ -25,14 +25,7 @@ const styles = ((theme) => ({
   },
 }));
 
-const projects = [
-    { id: 1, name: 'TeSTINGGGGaefaer aer' },
-    { id: 4, name: 'raef aer' },
-    { id: 3, name: 'sdvzdv aer' },
-    { id: 2, name: 'faefaer' },
-]
-
-const ProjectsGrid = ({ classes }) => {
+const ProjectsGrid = ({ classes, projects }) => {
     return (
       <div className={classes.root} id="projects">
         <GridList cellHeight={180} className={classes.gridList}>

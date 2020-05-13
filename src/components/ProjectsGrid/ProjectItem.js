@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  withStyles, GridListTile, GridListTileBar, Link, ThemeProvider
-} from '@material-ui/core';
+import { withStyles, GridListTile, GridListTileBar } from '@material-ui/core';
+import Link from '../_common/Link';
 
 const styles = ((theme) => ({
   root: {
@@ -18,7 +17,7 @@ const styles = ((theme) => ({
 
 const ProjectItem = ({ classes, id, name, img }) => (
   <div className={classes.root}>
-    <Link href={`/projects/[pid]`} as={`/projects/${id}`}>
+    <Link href="/projects/[pid]" as={`/projects/${id}`}>
       <GridListTile>
         <img src={img} alt={name} className={classes.img} />
         <GridListTileBar
