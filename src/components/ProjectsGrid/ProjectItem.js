@@ -15,11 +15,11 @@ const styles = ((theme) => ({
   },
 }));
 
-const ProjectItem = ({ classes, id, name, img }) => (
+const ProjectItem = ({ classes, id, name, images }) => (
   <div className={classes.root}>
     <Link href="/projects/[pid]" as={`/projects/${id}`}>
       <GridListTile>
-        <img src={img} alt={name} className={classes.img} />
+        <img src={images[0].img} alt={name} className={classes.img} />
         <GridListTileBar
           title={name}
         />
@@ -29,14 +29,14 @@ const ProjectItem = ({ classes, id, name, img }) => (
 );
 
 ProjectItem.defaultProps = {
-  img: '/imgs/no-image.png',
+  img: [{ img: '/imgs/no-image.png' }],
 }
 
 ProjectItem.propTypes = {
   classes: PropTypes.object.isRequired,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  img: PropTypes.string,
+  images: PropTypes.array,
 }
 
 export default withStyles(styles)(ProjectItem);
