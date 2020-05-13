@@ -1,19 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { withStyles, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 import Details from './Details';
 import Picture from './Picture';
-import ScrollDownMark from './ScrollDownMark';
 
-const styles = ((theme) => ({
-   
-}));
-
-const AboutSection = ({ classes }) => {
+const AboutSection = () => {
   return (
-    <React.Fragment>
       <Grid container alignItems="center" justify="center" spacing={0}>
           <Grid item xs={6}>
             <Details />
@@ -22,13 +15,7 @@ const AboutSection = ({ classes }) => {
             <Picture />
           </Grid>
       </Grid>
-      <ScrollDownMark />
-    </React.Fragment>
   )
 }
 
-AboutSection.propTypes = {
-  classes: PropTypes.object.isRequired,
-}
-
-export default withStyles(styles)(AboutSection);
+export default AboutSection;
