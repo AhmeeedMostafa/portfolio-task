@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { AppBar, Toolbar, Typography, Button, withStyles } from '@material-ui/core';
 
 import Link from '../_common/Link';
-import routes from '../../constants/routes';
+import { routes } from '../../utils/constants';
 
 const styles = (theme) => ({
   title: {

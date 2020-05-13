@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { withStyles, Typography } from '@material-ui/core';
 
-import socialMedia from '../../constants/socialMedia';
+import { socialLinks } from '../../utils/constants';
 
 const styles = ((theme) => ({
   root:{
@@ -24,7 +24,7 @@ const styles = ((theme) => ({
 
 const SocialMediaLinks = ({ classes }) => (
     <div className={classes.root}>
-        {socialMedia.map((social) => (
+        {socialLinks.map((social) => (
             <div className={classes.section} key={social.url}>
                 <social.icon />
                 <a href={social.url} target="_blank" rel="noopener noreferrer">
