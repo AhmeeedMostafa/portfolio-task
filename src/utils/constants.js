@@ -1,6 +1,7 @@
 import { LinkedIn, Facebook, Twitter, Home, Code, Mail  } from '@material-ui/icons';
 
-export const reqUrl = "http://localhost:3000";
+// It should be set through environment variables for being more dynamic.
+export const projectsDataApiUrl = "https://api.jsonbin.io/b/5ebc5e7147a2266b1478026b";
 
 export const themeModesConstants = {
   storageKey: 'theme-mode',
