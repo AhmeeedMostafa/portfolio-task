@@ -1,7 +1,7 @@
 import { LinkedIn, Facebook, Twitter, Home, Code, Mail  } from '@material-ui/icons';
 
 // It should be set through environment variables for being more dynamic.
-export const projectsDataApiUrl = "https://drive.google.com/file/d/1rKKSQRGepPfgAMlM6Iu8iDLTtzWNaKKq/view?usp=sharing";
+export const projectsDataApiUrl = "https://api.npoint.io/b17eedf355aa7c447aba";
 
 export const themeModesConstants = {
   storageKey: 'theme-mode',
