@@ -17,20 +17,34 @@ const styles = (theme) => ({
 });
 
 
-const Header = ({ classes }) => (
-  <AppBar position="relative">
-    <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-          Ahmed Khallaf
-        </Typography>
-        {routes.map(({ path, name }) => (
-          <Link key={name} href={path} className={classes.link}>
-            {name}
-          </Link>
-        ))}
-    </Toolbar>
-  </AppBar>
-);
+const Header = ({ classes }) => {
+  const handleLinkClicking = (event) => {
+    const targetUrl = event.target.href;
+    const startOfSectionId = targetUrl.indexOf('#') + 1;
+    const sectionId = targetUrl.substr(startOfSectionId);
+    const requestedSection = document.getElementById(sectionId);
+    
+    if (requestedSection) {
+      event.preventDefault();
+      requestedSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  return (
+    <AppBar position="relative">
+      <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            Ahmed Khallaf
+          </Typography>
+          {routes.map(({ path, name }) => (
+            <Link key={name} href={path} className={classes.link} onClick={handleLinkClicking}>
+              {name}
+            </Link>
+          ))}
+      </Toolbar>
+    </AppBar>
+  );
+}
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
