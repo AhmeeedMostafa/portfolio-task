@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { withStyles, Button, TextField, Typography } from '@material-ui/core';
 
+import sendMail from '../../utils/sendMail';
+
 const styles = ((theme) => ({
   root: {
     paddingTop: theme.spacing(5),
@@ -23,6 +25,7 @@ const styles = ((theme) => ({
 
 const ContactForm = ({ classes }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -43,16 +46,22 @@ const ContactForm = ({ classes }) => {
     setFormData({ ...formData, [event.target.name]: event.target.value.trim() });
   }
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
+    setIsSubmitting(true);
     // Delete the general error that shows the whole form error
     deleteError('general');
 
     if (formData && Object.keys(formData).length === 3 && Object.keys(errors).length === 0) {
-      console.log(formData);
-      setIsSubmitted(true);
+      const sendingMail = await sendMail(formData);
+      if (sendingMail) {
+        setIsSubmitted(true);
+      } else {
+        alert("Something went wrong while sending your message, try again later.");
+      }
     } else {
       setErrors({ ...errors, general: true });
     }
+    setIsSubmitting(false);
   }
 
   if (isSubmitted) {
@@ -65,7 +74,7 @@ const ContactForm = ({ classes }) => {
 
   return (
     <div className={classes.root} id="contact">
-      <Typography align="center" gutterBottom>Let's get in touch!</Typography>
+      <Typography align="center" variant="h6" compoent="b" gutterBottom>Let's get in touch!</Typography>
       {errors.general 
         && <Typography align="center" color="error">All the fields are required, please fill them.</Typography>}
       <form className={classes.form}>
@@ -109,8 +118,14 @@ const ContactForm = ({ classes }) => {
             required
           />
         </div>
-        <Button variant="contained" color="primary" className={classes.btn} onClick={sendMessage}>
-          Send message
+        <Button 
+          variant="contained"
+          color="primary"
+          className={classes.btn}
+          onClick={!isSubmitting ? sendMessage : undefined}
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Sending...' : 'Send message'}
         </Button>
       </form>
     </div>

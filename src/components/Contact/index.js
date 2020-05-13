@@ -1,18 +1,11 @@
 import React from 'react';
 
-import { withStyles, Grid, Divider } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import ContactForm from './ContactForm';
 import SocialMediaLinks from './SocialMediaLinks';
 
-const styles = ((theme) => ({
-  root: {
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(1),
-  }
-}));
 
-
-const ContactSection = ({ classes }) => (
+const ContactSection = () => (
   <Grid container alignItems="center" justify="center" spacing={0}>
     <Grid item xs={6}>
       <ContactForm />
@@ -23,4 +16,4 @@ const ContactSection = ({ classes }) => (
   </Grid>
 );
 
-export default withStyles(styles)(ContactSection);
+export default ContactSection;
