@@ -1,7 +1,8 @@
-import { reqUrl } from '../utils/constants';
+import { projectsDataApiUrl } from '../utils/constants';
+const fetch = require("node-fetch");
 
-export default async (pid) => {
-  const data = await fetch(`${reqUrl}/js/projects.json`);
+export default async (pid = undefined) => {
+  const data = await fetch(projectsDataApiUrl);
   const jsonData = await data.json();
 
   let result = jsonData;
