@@ -30,7 +30,7 @@ const Details = ({ classes }) => {
       <div className={classes.txt}>
         <strong>Full-stack developer</strong>
         <Typography>
-          A computer & control Engineering student, turning 22 years old & lives in Cairo.
+          A computer & control Engineering student, turning 22 years old, lives in Cairo & had humble experience with extra-curricular activities ending by AIESEC & TEDx.
         </Typography>
       </div>
       <Divider className={classes.divider}  />
